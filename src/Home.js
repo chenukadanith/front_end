@@ -1,8 +1,11 @@
 import React from 'react'
+import NavBar from "./component/common/NavBar";
 
 const Home = () => {
   return (
-    <div>welcome to the Home page </div>
+    <div className="text-center">welcome to the Home page </div>
+
+
 
 
   )
