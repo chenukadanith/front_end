@@ -1,11 +1,10 @@
 import React from 'react'
 import NavBar from "./component/common/NavBar";
+import CarouselComponent from "./component/common/CarouselComponent";
 
 const Home = () => {
   return (
-    <div className="text-center">welcome to the Home page </div>
-
-
+      <CarouselComponent />
 
 
   )

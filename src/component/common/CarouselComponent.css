@@ -1,0 +1,22 @@
+.carousel{
+    padding-top: 50px;
+    position: relative;
+}
+
+
+.carousel-item{
+    position: relative;
+}
+.carousel-item::before{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);;
+    content: "";
+    z-index: 1;
+}
+.carousel-caption{
+    z-index: 2;
+}

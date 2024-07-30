@@ -1,0 +1,78 @@
+.login-button {
+    background-color: #009970;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 8px 20px;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #00b383;
+}
+
+.navbar-toggler {
+    border: none !important;
+    font-size: 1.25rem;
+    /*text-decoration: none;*/
+}
+
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.nav-link {
+    color: #666777 !important;
+    font-weight: 500 !important;
+    position: relative !important;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #000 !important;
+}
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "" !important;
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 50% !important;
+        width: 0 !important;
+        height: 2.5px !important;
+        background-color: #009970 !important;
+        visibility: hidden !important;
+        transition:  0.3s ease-in-out !important;
+        transform: translateX(-50%);
+    }
+
+    .nav-link:hover::before,.nav-link.active::before {
+        width: 100% !important;
+        visibility: visible !important;
+    }
+
+}
+.navbar-brand{
+    font-weight: 500;
+    color: #009970;
+    font-size: 24px;
+    transition: 0.3s background-color;
+    border-radius: 50px;
+    padding: 8px 20px;
+    border: none;
+
+}
+.navbar-brand:hover{
+    background-color: #009970;
+}
+.navbar{
+    background-color: #fff;
+    height: 80px;
+    margin: 20px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    padding: 0.5rem;
+    border-radius: 16px;
+
+
+}

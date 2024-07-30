@@ -1,46 +1,48 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from "react-router-dom";
 import { FaRegUser } from "react-icons/fa6";
+// import './NavBar.css';
 
 function NavBar() {
   return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
-        <div className="container-fluid">
-          <div className="d-flex justify-content-center ">
-            <NavLink className="navbar-brand" to="/">ClassCrest</NavLink>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand me-auto" href="#">Class Crest</a>
+
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Class Crect</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <li className="nav-item">
+                  <NavLink  className="nav-link active mx-lg-2" aria-current="page" to="/">Home</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link mx-lg-2" aria-current="page" to="/view-students">Students</NavLink>
+                </li>
+
+                <li className="nav-item">
+                  <a className="nav-link  mx-lg-2" aria-current="page" href="#">Add Students</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link mx-lg-2" href="#">About</a>
+                </li>
+
+              </ul>
+
+            </div>
           </div>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                  aria-label="Toggle navigation">
+          <a href="#" class="login-button">Login</a>
+          <button className="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                  aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul className="navbar-nav mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/view-students" activeClassName="active">View All
-                  Students</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/add-students" activeClassName="active">Add New Student</NavLink>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-bs-toggle="dropdown" aria-expanded="false">
-                  <FaRegUser/>
-                </a>
-                <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <li>
-                    <NavLink className="dropdown-item" to="/profile">View Profile</NavLink>
-                  </li>
-                  <li>
-                    <NavLink className="dropdown-item" to="/logout">Logout</NavLink>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
         </div>
+
       </nav>
+      // <section className="hero-section"></section>
   );
 }
 
