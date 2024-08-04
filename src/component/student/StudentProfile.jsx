@@ -17,7 +17,7 @@ function StudentProfile() {
     }, []);
 
     const loadStudent = useCallback(async () => {
-        const result = await axios.get(`http://localhost:8080/api/v1/students/student/${id}`);
+        const result = await axios.get(`http://localhost:8080/api/v1/student/getStudentById?id=${id}`);
         setStudent(result.data);
     }, [id]);
 
@@ -33,6 +33,7 @@ function StudentProfile() {
                         <div className="detail-item">
                             <span>First Name</span>
                             <p>{student.firstName}</p>
+
                         </div>
                         <div className="detail-item">
                             <span>Last Name</span>

@@ -10,22 +10,20 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  return (
-
-      <Router>
-        <NavBar />
-        <main className="container mt-5">
-           {/* Navbar always present */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/view-students" element={<><StudentsView /></>} /> {/* StudentsView displayed on /view-students */}
-            <Route path="/add-students" element={<AddStudent />} />
-            <Route path="/edit-student/:id" element={<EditStudent />} />
-            <Route path="/student-profile/:id" element={<StudentProfile />} />
-          </Routes>
-        </main>
-      </Router>
-  );
+    return (
+        <Router>
+            <NavBar />
+            <div className="main-content">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/view-students" element={<StudentsView />} />
+                    <Route path="/add-students" element={<AddStudent />} />
+                    <Route path="/edit-student/:id" element={<EditStudent />} />
+                    <Route path="/student-profile/:id" element={<StudentProfile />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

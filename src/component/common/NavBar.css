@@ -1,3 +1,28 @@
+/* Adjusting margin-top to account for the NavBar height */
+body {
+
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 20px;
+}
+
+.navbar {
+    background-color: #fff;
+    height: 80px; /* Make sure this matches your NavBar height */
+    margin-top:25px;
+    padding: 0.5rem;
+    border-radius: 16px;
+    position: fixed; /* If using fixed positioning */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.main-content {
+    padding-top: 80px; /* Adjust based on the NavBar height */
+}
+
 .login-button {
     background-color: #009970;
     color: #fff;
@@ -15,7 +40,6 @@
 .navbar-toggler {
     border: none !important;
     font-size: 1.25rem;
-    /*text-decoration: none;*/
 }
 
 .navbar-toggler:focus, .btn-close:focus {
@@ -32,6 +56,7 @@
 .nav-link:hover, .nav-link.active {
     color: #000 !important;
 }
+
 @media (min-width: 991px) {
     .nav-link::before {
         content: "" !important;
@@ -42,17 +67,17 @@
         height: 2.5px !important;
         background-color: #009970 !important;
         visibility: hidden !important;
-        transition:  0.3s ease-in-out !important;
+        transition: 0.3s ease-in-out !important;
         transform: translateX(-50%);
     }
 
-    .nav-link:hover::before,.nav-link.active::before {
+    .nav-link:hover::before, .nav-link.active::before {
         width: 100% !important;
         visibility: visible !important;
     }
-
 }
-.navbar-brand{
+
+.navbar-brand {
     font-weight: 500;
     color: #009970;
     font-size: 24px;
@@ -60,19 +85,8 @@
     border-radius: 50px;
     padding: 8px 20px;
     border: none;
-
 }
-.navbar-brand:hover{
+
+.navbar-brand:hover {
     background-color: #009970;
-}
-.navbar{
-    background-color: #fff;
-    height: 80px;
-    margin: 20px;
-    margin-top: 10px;
-    margin-bottom: 40px;
-    padding: 0.5rem;
-    border-radius: 16px;
-
-
 }

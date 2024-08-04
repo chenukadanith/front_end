@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaEye, FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Search from '../common/Search';
+import "./StudentsView.css"
 
 function StudentsView() {
     const [students, setStudents] = useState([]);
@@ -53,7 +54,7 @@ function StudentsView() {
     };
 
     return (
-        <section>
+        <section className="section">
             <Search search={search} setSearch={setSearch} />
             <table className="table table-bordered table-hover">
                 <thead>
@@ -62,7 +63,7 @@ function StudentsView() {
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
-                    <th>Department</th>
+                    <th>Address</th>
                     <th colSpan="3">Actions</th>
                 </tr>
                 </thead>
@@ -77,7 +78,7 @@ function StudentsView() {
                             <td>{student.firstName}</td>
                             <td>{student.lastName}</td>
                             <td>{student.email}</td>
-                            <td>{student.department}</td>
+                            <td>{student.address}</td>
                             <td className="mx-1">
                                 <Link to={`/student-profile/${student.id}`} className="btn btn-info btn-sm">
                                     <FaEye />
