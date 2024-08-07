@@ -42,7 +42,7 @@ function StudentsView() {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/v1/students/delete/${id}`);
+            await axios.delete(`http://localhost:8080/api/v1/student/deleteStudent/${id}`);
             loadStudents(currentPage, 10);
         } catch (error) {
             console.error("There was an error deleting the student!", error);
@@ -64,6 +64,7 @@ function StudentsView() {
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Address</th>
+                    <th>Phone Number</th>
                     <th colSpan="3">Actions</th>
                 </tr>
                 </thead>
@@ -79,6 +80,7 @@ function StudentsView() {
                             <td>{student.lastName}</td>
                             <td>{student.email}</td>
                             <td>{student.address}</td>
+                            <td>{student.phoneNumber}</td>
                             <td className="mx-1">
                                 <Link to={`/student-profile/${student.id}`} className="btn btn-info btn-sm">
                                     <FaEye />
