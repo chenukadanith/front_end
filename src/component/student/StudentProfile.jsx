@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./StudentProfile.css"; // Assuming you have a CSS file for custom styling
 
 function StudentProfile() {
     const { id } = useParams();
-    const [student, setStudent] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        department: "",
-    });
+    const [student, setStudent] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     const loadStudent = useCallback(async () => {
         try {
@@ -23,6 +21,9 @@ function StudentProfile() {
             }
         } catch (error) {
             console.error("Error fetching student data:", error);
+            setError("Failed to load student data.");
+        } finally {
+            setLoading(false);
         }
     }, [id]);
 
@@ -30,37 +31,45 @@ function StudentProfile() {
         loadStudent();
     }, [loadStudent]);
 
-    useEffect(() => {
-        console.log("Updated student state:", student);
-    }, [student]);
+    if (loading) {
+        return <div className="loader">Loading...</div>;
+    }
+
+    if (error) {
+        return <div className="error">{error}</div>;
+    }
+
+    if (!student) {
+        return <div className="error">No student found.</div>;
+    }
 
     return (
-        <section className="shadow">
+        <section className="shadow student-profile">
             <div className="container">
                 <div className="profile-header">
-                    <h2>{student.firstName && student.lastName ? `${student.firstName} ${student.lastName}` : "Loading..."}</h2>
+                    <h2>{student.firstName} {student.lastName}</h2>
                 </div>
                 <div className="profile-body">
                     <div className="profile-details">
                         <div className="detail-item">
                             <span>First Name</span>
-                            <p>{student.firstName || "Loading..."}</p>
+                            <p>{student.firstName}</p>
                         </div>
                         <div className="detail-item">
                             <span>Last Name</span>
-                            <p>{student.lastName || "Loading..."}</p>
+                            <p>{student.lastName}</p>
                         </div>
                         <div className="detail-item">
                             <span>Email</span>
-                            <p>{student.email || "Loading..."}</p>
+                            <p>{student.email}</p>
                         </div>
                         <div className="detail-item">
                             <span>Address</span>
-                            <p>{student.address || "Loading..."}</p>
+                            <p>{student.address || "N/A"}</p>
                         </div>
                         <div className="detail-item">
                             <span>Phone Number</span>
-                            <p>{student.phoneNumber || "Loading..."}</p>
+                            <p>{student.phoneNumber || "N/A"}</p>
                         </div>
                     </div>
                 </div>

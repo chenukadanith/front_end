@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginAndSignUpPage from "./component/auth/LoginPage";
 import SignupPage from "./component/auth/SignUp";
 import MainLayout from "./layout/MainLayout";
-
+import About from "./component/other/about"
 function App() {
     return (
         <Router>
@@ -24,6 +24,7 @@ function App() {
                         <Route path="/add-students" element={<AddStudent />} />
                         <Route path="/edit-student/:id" element={<EditStudent />} />
                         <Route path="/student-profile/:id" element={<StudentProfile />} />
+                        <Route path="/about" element={<About/>}></Route>
                     </Route>
 
                     <Route path="/login" element={<LoginAndSignUpPage />} />

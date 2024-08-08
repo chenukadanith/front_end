@@ -37,7 +37,7 @@ function NavBar() {
                   }
 
                   <li className="nav-item">
-                      <a className="nav-link mx-lg-2" href="#">About</a>
+                      <NavLink className="nav-link mx-lg-2" to="/about">About</NavLink>
                   </li>
               </ul>
             </div>

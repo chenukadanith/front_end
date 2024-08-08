@@ -21,10 +21,15 @@ function LoginPage() {
 
             if (response.ok) {
                 const result = await response.json();
-                localStorage.setItem("auth",true);
-                navigate("/");
-                // Handle successful login
-                console.log('Login successful:', result);
+                if(result.code == 200){
+                    localStorage.setItem("auth",true);
+                    navigate("/");
+                    // Handle successful login
+                    console.log('Login successful:', result);
+                }else{
+                    localStorage.setItem("auth",false);
+                }
+
             } else {
                 // Handle error response
                 console.error('Login failed:', response.statusText);
