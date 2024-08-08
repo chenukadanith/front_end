@@ -8,20 +8,28 @@ import StudentProfile from './component/student/StudentProfile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginAndSignUpPage from "./component/auth/LoginPage";
+import SignupPage from "./component/auth/SignUp";
+import MainLayout from "./layout/MainLayout";
 
 function App() {
     return (
         <Router>
-            <NavBar />
-            <div className="main-content">
+
+
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/view-students" element={<StudentsView />} />
-                    <Route path="/add-students" element={<AddStudent />} />
-                    <Route path="/edit-student/:id" element={<EditStudent />} />
-                    <Route path="/student-profile/:id" element={<StudentProfile />} />
+                    <Route element={<MainLayout/>}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/view-students" element={<StudentsView />} />
+                        <Route path="/add-students" element={<AddStudent />} />
+                        <Route path="/edit-student/:id" element={<EditStudent />} />
+                        <Route path="/student-profile/:id" element={<StudentProfile />} />
+                    </Route>
+
+                    <Route path="/login" element={<LoginAndSignUpPage />} />
+                    <Route path="/signup" element={<SignupPage />} />
+
                 </Routes>
-            </div>
         </Router>
     );
 }

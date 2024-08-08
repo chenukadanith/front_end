@@ -4,6 +4,7 @@ import { FaRegUser } from "react-icons/fa6";
 import './NavBar.css';
 
 function NavBar() {
+    const auth=localStorage.getItem("auth");
   return (
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
@@ -20,22 +21,35 @@ function NavBar() {
                 <li className="nav-item">
                   <NavLink className="nav-link mx-lg-2" aria-current="page" to="/" end>Home</NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link mx-lg-2" aria-current="page" to="/view-students">Students</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link mx-lg-2" aria-current="page" to="/add-students">Add Students</NavLink>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link mx-lg-2" href="#">About</a>
-                </li>
+                  {
+                      auth=="true"?(
+                          <>
+                              <li className="nav-item">
+                                  <NavLink className="nav-link mx-lg-2" aria-current="page"
+                                           to="/view-students">Students</NavLink>
+                              </li>
+                              <li className="nav-item">
+                                  <NavLink className="nav-link mx-lg-2" aria-current="page" to="/add-students">Add
+                                      Students</NavLink>
+                              </li>
+                          </>
+                      ) : undefined
+                  }
+
+                  <li className="nav-item">
+                      <a className="nav-link mx-lg-2" href="#">About</a>
+                  </li>
               </ul>
             </div>
 
 
+          </div>
+            {
+                auth == 'true' ? <NavLink className=" login-button" to="/login" onClick={()=>{
+                    localStorage.setItem('auth',false);
+                }}>Logout</NavLink>:<NavLink className=" login-button" to="/login">Login</NavLink>
+            }
 
-        </div>
-        <a href="#" class="login-button">Login</a>
         <button className="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
